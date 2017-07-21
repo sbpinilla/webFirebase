@@ -9,6 +9,8 @@
 <!-- Firebase -->
 
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+
 <script>
   // Initialize Firebase
   var config = {
@@ -19,6 +21,7 @@
     storageBucket: "mi-proyecto-299f4.appspot.com",
     messagingSenderId: "971032145977"
   };
+
   firebase.initializeApp(config);
 </script>
 
@@ -28,14 +31,40 @@
 	
   <h1>Firebase Web</h1>
 
+   
+      <table>
+        <tr>
+          <td>Email</td>
+          <td>
+            <input type="text" name="txtEmail" id="txtEmail">
+          </td>
+        </tr>
+        <tr>
+          <td>Contraseña</td>
+          <td>
+            <input type="password" name="txtPass" id="txtPass">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button onclick="login()" >Login</button>
+          </td>
+        </tr>
+      </table>
+
+
+
+
   <!-- 
     Tipos de autenticación 
     (1) Activar el servicio (Ingresar a al pagina de firebase , en tu proyecto ir al menu authentication)
-    (2)
     
-
   -->
+  
 
+
+  <!-- Incluir main.js -->
+  <script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
 
 </body>
 </html>

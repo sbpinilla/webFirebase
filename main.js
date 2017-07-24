@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     var uid = user.uid;
     var providerData = user.providerData;
    
-
+    
     
   } else {
      // User is signed out.
@@ -43,10 +43,11 @@ function login (){
 var txtEmail= document.getElementById ("txtEmail");
 var txtPass= document.getElementById ("txtPass");
   
-  alert("Login - "+txtEmail.value);
+  //alert("Login - "+txtEmail.value);
     if(txtEmail.value !="" && txtPass.value !=""){
 
-        signInWithEmailAndPassword(txtEmail.value , txtPass.value);
+          createUserWithEmailAndPassword(txtEmail.value , txtPass.value);
+       // signInWithEmailAndPassword(txtEmail.value , txtPass.value);
 
     }else{
 
@@ -62,16 +63,22 @@ var txtPass= document.getElementById ("txtPass");
 
 function createUserWithEmailAndPassword(email, password){
 
-firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+firebase.auth().createUserWithEmailAndPassword(email, password)
+.then(function(data){
+  
+
+  alert("data"+data);
+  //Aqui va el codigo si todo salio bien 
+
+}) 
+.catch(function(error) {
    // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
+    var errorCode = error.code;
+    var errorMessage = error.message;
 
 });
 
 }
-
-
 
 //Metodo para autenticar un usuario
 function  signInWithEmailAndPassword(email, password){
@@ -82,9 +89,6 @@ firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
-
-  console.log("errorCode:"+errorCode);
-  console.log("errorMessage:"+errorMessage);
 
 
 });
